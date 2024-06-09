@@ -1,0 +1,30 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Carlos Trigo <ctrigose@gmail.com>",
+  "packageManager": "yarn@4.2.2",
+  "scripts": {
+    "build": "yarn tsc",
+    "start:dev": "nodemon src/index.ts",
+    "start:prod": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "eslint": "8.56.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1",
+    "@types/eslint": "^8",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "nodemon": "^3.1.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
