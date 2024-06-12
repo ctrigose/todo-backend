@@ -2,10 +2,11 @@ import bodyParser from "body-parser";
 import express from "express";
 import "express-async-errors";
 import http from "http";
-import { PORT } from "./constants";
+import { PORT, BODY_LIMIT, NODE_ENV, PARAMETER_LIMIT } from "./constants";
 import { DB } from "./db";
 import { newRouter } from "./routes";
 import { createErrorMiddleware } from "./util/error-middleware";
+import { expressConfig } from "./util/express-config";
 
 const shutdown =
   (deps: { server: http.Server; db: DB }) => async (): Promise<void> => {
@@ -20,13 +21,15 @@ const shutdown =
 const startup = async () => {
   console.info(`Initializing express...`);
   const app = express();
+  expressConfig(app, {
+    BODY_LIMIT,
+    PARAMETER_LIMIT,
+    NODE_ENV,
+  });
 
   const db = new DB();
   await db.connect();
   await db.createTodoTable();
-
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
 
   app.use(newRouter({ db }));
 
