@@ -38,7 +38,9 @@ export class Controller {
       const result = await this.db.add(todo);
       res.status(200).send(result.rows);
     } else {
-      throw new BadRequestError("Invalid todo name");
+      throw new BadRequestError(
+        "Todo name must be between 1 and 50 characters"
+      );
     }
   };
 

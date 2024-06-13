@@ -18,7 +18,7 @@ export const PARAMETER_LIMIT: number =
 export const dataConstraints = {
   todo: {
     name: {
-      max: 100,
+      max: 50,
       min: 1,
     },
   },

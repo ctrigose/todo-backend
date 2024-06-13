@@ -3,7 +3,7 @@ import { ERRORS } from "./errors";
 
 /** Handles API errors, returning the appropriate status code based on the error thrown */
 export const createErrorMiddleware = (): ErrorRequestHandler => {
-  return (err, _req, res) => {
+  return (err, _req, res, _next) => {
     console.error(err);
 
     for (const Error of ERRORS) {
