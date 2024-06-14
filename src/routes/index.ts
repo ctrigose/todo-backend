@@ -12,7 +12,6 @@ export const newRouter = (deps: { db: DB }) => {
   router.get(`/id/:id`, controller.GET_BY_ID);
 
   router.post(`/add`, controller.ADD);
-  router.post(`/add`, controller.ADD);
 
   router.put(`/rename/:id`, controller.RENAME_BY_ID);
   router.put(`/setAsCompleted/:id`, controller.SET_AS_COMPLETED);

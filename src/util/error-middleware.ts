@@ -3,7 +3,8 @@ import { ERRORS } from "./errors";
 
 /** Handles API errors, returning the appropriate status code based on the error thrown */
 export const createErrorMiddleware = (): ErrorRequestHandler => {
-  return (err, _req, res) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return (err, _req, res, next) => {
     console.error(err);
 
     for (const Error of ERRORS) {
